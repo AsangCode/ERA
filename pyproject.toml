@@ -1,0 +1,23 @@
+[project]
+name = "assignment-2"
+version = "0.1.0"
+description = "ERA Assignment 2"
+requires-python = ">=3.8"
+dependencies = [
+    "flask",
+    "opencv-python",
+    "numpy",
+    "Pillow",
+    "werkzeug",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["static*", "templates*"]
+
+[tool.uv]
+required-version = ">=0.1.0"
