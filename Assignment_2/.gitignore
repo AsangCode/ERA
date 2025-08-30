@@ -23,6 +23,9 @@ build/
 .env
 .env.local
 
+# Security
+*.pem
+
 # Project specific
 static/uploads/*
 !static/uploads/.gitkeep

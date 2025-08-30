@@ -91,3 +91,46 @@ This project uses `uv` for dependency management. Common commands:
 ## File Size Limit
 
 Maximum file size: 16MB
+
+## AWS Deployment
+
+The application is deployed on AWS EC2 and can be accessed at:
+```
+http://15.207.19.95:5000
+```
+
+### Deployment Steps
+
+1. Connect to EC2 instance:
+```bash
+ssh -i path/to/key.pem ubuntu@15.207.19.95
+```
+
+2. Install system dependencies:
+```bash
+sudo apt-get update && sudo apt-get install -y python3-venv python3-pip git libgl1-mesa-glx libglib2.0-0 libsm6 libxext6 libxrender-dev
+```
+
+3. Clone and setup the project:
+```bash
+git clone <repository-url>
+cd Assignment_2
+```
+
+4. Install uv and dependencies:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
+```
+
+5. Run the application:
+```bash
+flask run --host=0.0.0.0 --port=5000
+```
+
+### AWS Configuration
+
+- EC2 Instance Type: t2.micro
+- Security Group Configuration:
+  - Inbound Rule: Custom TCP, Port 5000, Source 0.0.0.0/0
+  - SSH: Port 22 for remote access
